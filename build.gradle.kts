@@ -1,5 +1,6 @@
 plugins {
     id("java")
+    id("application")
 }
 
 group = "dev.cheercode"
@@ -16,4 +17,12 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+}
+
+application {
+    mainClass.set("dev.cheercode.MainWithGUI")
+}
+
+tasks.named<JavaExec>("run") {
+    standardInput = System.`in`
 }
